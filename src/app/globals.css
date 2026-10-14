@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f3eee6;
+  --paper: #faf6f1;
+  --ink: #1c1714;
+  --wine: #722f37;
+  --wine-deep: #541f26;
+  --blush: #eddcd6;
+  --stone: #e5ddd2;
+  --muted: #6e665f;
+  --line: rgba(28, 23, 20, 0.14);
+  --background: var(--ivory);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-wine: var(--wine);
+  --color-wine-deep: var(--wine-deep);
+  --color-blush: var(--blush);
+  --color-stone: var(--stone);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #e4cfc8;
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 0.75rem 1rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.field {
+  width: 100%;
+  min-height: 2.75rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s ease both;
+}
+
+.rise-late {
+  animation-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .shift {
+    transform: none !important;
+  }
+}
