@@ -2,9 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Fraunces, Outfit } from "next/font/google";
 import { siteConfig } from "../../data/site-config";
-import { BackToTop } from "@/components/layout/BackToTop";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFrame } from "@/components/layout/SiteFrame";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -62,16 +60,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${outfit.variable}`}>
       <body className="flex min-h-screen flex-col bg-ivory font-sans text-ink antialiased">
-        <a className="skip-link" href="#main">
-          Skip to content
-        </a>
-        <JsonLd />
-        <SiteHeader />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
-        <BackToTop />
+        <SiteFrame jsonLd={<JsonLd />}>{children}</SiteFrame>
       </body>
     </html>
   );

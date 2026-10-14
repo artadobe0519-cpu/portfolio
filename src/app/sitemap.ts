@@ -2,9 +2,10 @@ import type { MetadataRoute } from "next";
 import { getAllProjects } from "@/lib/projects";
 import { getSiteUrlOrLocal } from "@/lib/seo";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = getSiteUrlOrLocal();
-  const paths = ["", "/work", "/about", "/services", "/contact", ...getAllProjects().map((project) => `/work/${project.slug}`)];
+  const projects = await getAllProjects();
+  const paths = ["", "/work", "/about", "/services", "/contact", ...projects.map((project) => `/work/${project.slug}`)];
 
   return paths.map((path) => ({
     url: `${base}${path}`,

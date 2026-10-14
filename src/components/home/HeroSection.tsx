@@ -3,10 +3,10 @@ import { siteConfig } from "../../../data/site-config";
 import { ArtworkFrame } from "@/components/portfolio/ArtworkFrame";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
-export function HeroSection() {
-  const poster = getProjectBySlug("sunrise-study-posters");
-  const lawn = getProjectBySlug("bay-lawn-mowing");
-  const talk = getProjectBySlug("desi-talk");
+export async function HeroSection() {
+  const poster = await getProjectBySlug("sunrise-study-posters");
+  const lawn = await getProjectBySlug("bay-lawn-mowing");
+  const talk = await getProjectBySlug("desi-talk");
   if (!poster || !lawn || !talk) {
     throw new Error("Hero artwork is missing from the project registry.");
   }

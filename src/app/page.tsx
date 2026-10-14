@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   title: { absolute: siteConfig.seo.defaultTitle },
 };
 
-export default function HomePage() {
-  const featured = getFeaturedProjects();
+export default async function HomePage() {
+  const featured = await getFeaturedProjects();
 
   return (
     <>

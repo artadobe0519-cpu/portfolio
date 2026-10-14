@@ -130,7 +130,13 @@ CONTACT_TO_EMAIL=
 
 `SMTP_USER` is the Gmail address that sends both messages. `SMTP_PASS` is a Gmail app password. `CONTACT_TO_EMAIL` is the inbox that receives the enquiry. The person who filled the form also gets a thank-you email. If any value is missing, the form does **not** claim success. It explains that email is not connected and offers a WhatsApp link with the enquiry already written. Phone (`tel:+919462101167`) and WhatsApp (`https://wa.me/919462101167`) work without email setup.
 
-## 10. Build and deploy
+## 10. Work library
+
+Open `/admin` to edit projects: titles, categories, write-ups, featured placement, gallery images, and visibility. Sign-in uses `ADMIN_PASSWORD` from `.env`.
+
+Edits are stored in `data/managed/work.json`. The public site reads that file. Hide a project to take it off the site without deleting the artwork. Projects added in the admin can be deleted. Homepage hero projects cannot be hidden.
+
+## 11. Build and deploy
 
 ```bash
 npm run check:artwork

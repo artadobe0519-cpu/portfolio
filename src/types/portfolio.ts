@@ -51,6 +51,8 @@ export type Project = {
   year: string;
   tags: string[];
   contentStatus: "archive" | "demo";
+  /** Hidden projects stay in the admin library and are left off the public site. */
+  hidden?: boolean;
 };
 
 export const categoryLabels: Record<ProjectCategory, string> = {

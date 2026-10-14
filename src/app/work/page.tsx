@@ -10,8 +10,8 @@ export const metadata: Metadata = pageMetadata({
   path: "/work",
 });
 
-export default function WorkPage() {
-  const projects = getAllProjects();
+export default async function WorkPage() {
+  const projects = await getAllProjects();
 
   return (
     <div className="mx-auto w-full max-w-[90rem] px-5 py-14 md:px-8 md:py-20 lg:px-12">
